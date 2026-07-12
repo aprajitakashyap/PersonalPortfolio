@@ -5,8 +5,8 @@ export interface PersonalInfo {
   intro: string[];
   email: string;
   location: string;
-  avatarUrl?: string;
-  resumeUrl?: string;
+  avatarUrl: string;
+  resumeUrl: string;
 }
 
 export interface SocialLink {
