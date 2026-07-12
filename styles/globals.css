@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ==== OUR DESIGN TOKENS ==== */
+    --background-primary: #F9F8F6;
+    --background-secondary: #EFE9E3;
+    --background-card: #F7F4EA;
+    --accent-primary: #A8BBA3;
+    --accent-secondary: #B87C4C;
+    --text-primary: #2F2F2F;
+    --text-secondary: #6B6B6B;
+    --text-muted: #9A9A9A;
+    --border-light: #E7E2DB;
+
+    /* ==== SPACING TOKENS ==== */
+    --space-unit: 8px;
+    --container-max-width: 1280px;
+    --page-padding-desktop: 64px;
+    --page-padding-laptop: 48px;
+    --page-padding-tablet: 32px;
+    --page-padding-mobile: 20px;
+    --section-spacing: 120px;
+    --subsection-spacing: 64px;
+
+    /* ==== FONT TOKENS ==== */
+    --font-geist: var(--font-geist-sans);
+    --font-inter: var(--font-inter);
+
+    /* ==== shadcn/ui CSS VARIABLES (using our design tokens) ==== */
+    --background: var(--background-primary);
+    --foreground: var(--text-primary);
+    --card: var(--background-card);
+    --card-foreground: var(--text-primary);
+    --popover: var(--background-card);
+    --popover-foreground: var(--text-primary);
+    --primary: var(--accent-primary);
+    --primary-foreground: var(--text-primary);
+    --secondary: var(--background-secondary);
+    --secondary-foreground: var(--text-primary);
+    --muted: var(--background-secondary);
+    --muted-foreground: var(--text-muted);
+    --accent: var(--accent-primary);
+    --accent-foreground: var(--text-primary);
+    --destructive: #ef4444;
+    --destructive-foreground: var(--text-primary);
+    --border: var(--border-light);
+    --input: var(--border-light);
+    --ring: var(--accent-primary);
+    --radius: 0.5rem;
+  }
+
+  body {
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+    font-family: var(--font-inter);
+    line-height: 1.6;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
