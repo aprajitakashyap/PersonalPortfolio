@@ -8,6 +8,8 @@ export const personalInfo: PersonalInfo = {
     "I focus on creating clean, performant, and user-centric applications.",
     "My passion lies in solving complex problems and building solutions that last.",
   ],
+  primaryCtaLabel: "Explore Projects",
+  secondaryCtaLabel: "Resume",
   email: "you@example.com",
   location: "Remote",
   avatarUrl: "/placeholder-avatar.jpg",

@@ -5,9 +5,10 @@ export interface NavItem {
 
 export const navigationConfig = {
   mainNav: [
-    { label: "Home", href: "/" },
+    { label: "Home", href: "#home" },
     { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
+    { label: "Achievements", href: "#achievements" },
     { label: "Contact", href: "#contact" },
   ] satisfies NavItem[],
 };

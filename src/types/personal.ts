@@ -3,8 +3,11 @@ export interface PersonalInfo {
   name: string;
   headline: string;
   intro: string[];
+  primaryCtaLabel: string;
+  secondaryCtaLabel: string;
   email: string;
   location: string;
+  availability?: string;
   avatarUrl: string;
   resumeUrl: string;
 }
