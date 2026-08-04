@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import { Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import { seoConfig, siteConfig } from "@/config";
 import "@/styles/globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-cormorant-garamond",
   display: "swap",
 });
 
@@ -30,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${GeistSans.variable} ${inter.variable} font-inter antialiased`}
+        className={`${GeistSans.variable} ${inter.variable} ${cormorantGaramond.variable} font-inter antialiased`}
       >
         {children}
       </body>

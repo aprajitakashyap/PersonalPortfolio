@@ -65,3 +65,46 @@
     text-wrap: balance;
   }
 }
+
+/* ==== MARQUEE ANIMATION ==== */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ==== HORIZONTAL SCROLL SNAP (mobile gallery) ==== */
+.horizontal-scroll-container {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-snap-start {
+  scroll-snap-align: start;
+}
+
+/* ==== TIMELINE CONNECTOR ==== */
+.timeline-connector {
+  background: linear-gradient(
+    to bottom,
+    var(--accent-primary),
+    var(--border-light)
+  );
+}

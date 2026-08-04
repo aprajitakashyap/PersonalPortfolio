@@ -5,4 +5,3 @@ export * from "./experience";
 export * from "./achievements";
 export * from "./credentials";
 export * from "./technologies";
-

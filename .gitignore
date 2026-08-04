@@ -6,6 +6,7 @@
 /out
 /dist
 
+
 # Environment variables
 .env
 .env.local
@@ -38,3 +39,4 @@ coverage
 # Misc
 .cache
 .turbo
+/docs

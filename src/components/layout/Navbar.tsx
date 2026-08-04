@@ -21,7 +21,7 @@ function getBrandMark(name: string) {
     .join("")
     .toUpperCase();
 
-  return `${initials}.`;
+  return "AK";
 }
 
 export function Navbar() {
@@ -159,14 +159,27 @@ export function Navbar() {
           >
             <Link
               href="#home"
-              className="rounded-md font-geist text-xl font-semibold tracking-[-0.04em] text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="group inline-flex items-center rounded-md py-1.5 pr-2 text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               aria-label={`${siteConfig.author} home`}
               onClick={(event) => {
                 event.preventDefault();
                 navigateToSection("#home");
               }}
             >
-              {brandMark}
+              <span
+                className={cn(
+                  "inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/70 bg-card/80 text-sm font-semibold tracking-[0.2em] text-text-primary shadow-sm transition-colors duration-200 ease-out md:h-10 md:w-10 md:text-base",
+                  "font-[family-name:var(--font-cormorant-garamond)]"
+                )}
+                aria-hidden="true"
+              >
+                {brandMark}
+              </span>
+              <span className="ml-3 hidden overflow-hidden text-sm font-medium tracking-[-0.025em] text-text-secondary md:inline-flex md:items-center">
+                <span className="translate-x-2 opacity-0 transition-[opacity,transform] duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100 motion-reduce:transition-none motion-reduce:translate-x-0 motion-reduce:opacity-100">
+                  {siteConfig.author}
+                </span>
+              </span>
             </Link>
 
             <nav

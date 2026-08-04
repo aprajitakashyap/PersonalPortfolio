@@ -52,7 +52,7 @@ export function SocialLinks({
               target={isExternalLink(link.url) ? "_blank" : undefined}
               rel={isExternalLink(link.url) ? "noopener noreferrer" : undefined}
               className={cn(
-                "-mx-2 -my-2 inline-flex items-center gap-2 rounded-md px-2 py-2 font-geist text-sm font-medium text-text-secondary transition-colors duration-150 hover:text-accent-primary hover:underline hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                "-mx-3 -my-3 inline-flex items-center gap-2 rounded-md px-3 py-3 font-geist text-sm font-medium text-text-secondary transition-colors duration-150 hover:text-accent-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                 linkClassName
               )}
               aria-label={

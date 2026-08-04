@@ -1,6 +1,5 @@
 "use client";
 
-import { Cormorant_Garamond } from "next/font/google";
 import { ArrowDown, MapPin } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
@@ -11,12 +10,6 @@ import { SectionHeading } from "@/components/common/SectionHeading";
 import { SocialLinks } from "@/components/common/SocialLinks";
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/personal";
-
-const cormorantGaramond = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  display: "swap",
-});
 
 export const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
@@ -56,10 +49,10 @@ export const Hero = () => {
   };
 
   return (
-    <Section id="home" className="overflow-hidden pt-12 md:pt-16 lg:pt-20">
+    <Section id="home" className="overflow-hidden pt-10 md:pt-14 lg:pt-16">
       <Container>
         <motion.div
-          className="grid items-center gap-12 md:gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(340px,420px)] lg:items-start lg:gap-20 xl:grid-cols-[minmax(0,1.05fr)_minmax(380px,460px)] xl:gap-24"
+          className="grid items-center gap-10 md:gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(320px,400px)] lg:items-start lg:gap-16 xl:grid-cols-[minmax(0,1.05fr)_minmax(360px,440px)] xl:gap-20"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -68,31 +61,31 @@ export const Hero = () => {
             className="flex w-full flex-col items-center text-center lg:items-start lg:text-left"
             variants={containerVariants}
           >
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="w-full">
               <SectionHeading
                 label={personalInfo.greeting}
                 title={personalInfo.name}
                 titleAs="p"
-                className="space-y-6"
-                labelClassName="text-xs font-medium tracking-[0.18em] text-accent-secondary/90 sm:text-sm"
-                titleClassName={`${cormorantGaramond.className} text-[2.75rem] font-semibold tracking-[-0.035em] text-text-primary sm:text-5xl lg:text-[3.5rem]`}
+                className="max-w-2xl space-y-3 sm:space-y-4"
+                labelClassName="text-[0.7rem] font-medium uppercase tracking-[0.25em] text-accent-secondary/90 sm:text-xs"
+                titleClassName="font-[family-name:var(--font-cormorant-garamond)] text-[2.9rem] font-semibold leading-[0.95] tracking-[-0.025em] text-text-primary sm:text-5xl lg:text-[3.7rem]"
               />
             </motion.div>
             <motion.h1
               variants={itemVariants}
-              className="mt-10 max-w-4xl font-geist text-5xl font-bold leading-[1.02] tracking-[-0.045em] text-text-primary sm:text-6xl lg:text-[4.5rem]"
+              className="mt-8 max-w-4xl font-geist text-[2.65rem] font-semibold leading-[0.95] tracking-[-0.035em] text-text-primary sm:mt-10 sm:text-5xl sm:leading-[0.95] lg:mt-12 lg:text-[4rem]"
             >
-              <span>{headlineLead}</span>
+              <span className="block sm:inline">{headlineLead}</span>
               {headlineAccent ? (
                 <>
                   {" "}
-                  <span className="bg-gradient-to-r from-accent-primary via-text-primary to-accent-secondary bg-clip-text text-transparent">
+                  <span className="mt-2 block bg-gradient-to-r from-[#A8BBA3] via-[#B8A07A] to-[#B87C4C] bg-clip-text text-transparent sm:mt-0 sm:inline">
                     {headlineAccent}
                   </span>
                 </>
               ) : null}
             </motion.h1>
-            <div className="mt-12 max-w-[520px] space-y-4">
+            <div className="mt-8 max-w-[540px] space-y-3 sm:mt-10 sm:space-y-4">
               {personalInfo.intro.map((paragraph) => (
                 <motion.p
                   key={paragraph}
@@ -105,7 +98,7 @@ export const Hero = () => {
             </div>
             <motion.div
               variants={itemVariants}
-              className="mt-12 flex flex-wrap items-center justify-center gap-4 lg:justify-start"
+              className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:mt-10 lg:justify-start"
             >
               <Button
                 asChild
@@ -115,7 +108,7 @@ export const Hero = () => {
                 <Link href="#projects">
                   <span>{personalInfo.primaryCtaLabel}</span>
                   <ArrowDown
-                    className="transition-transform duration-200 ease-out motion-reduce:transform-none group-hover:translate-y-0.5 group-focus-visible:translate-y-0.5"
+                    className="transition-transform duration-200 ease-out motion-reduce:transform-none group-hover:translate-y-[3px] group-focus-visible:translate-y-[3px]"
                     aria-hidden="true"
                   />
                 </Link>
@@ -131,20 +124,14 @@ export const Hero = () => {
                 </Link>
               </Button>
             </motion.div>
-            <motion.div
-              variants={itemVariants}
-              className="mt-12"
-            >
+            <motion.div variants={itemVariants} className="mt-8 sm:mt-10">
               <SocialLinks
-                linkClassName="text-xs font-medium text-text-muted hover:text-accent-primary sm:text-sm"
+                linkClassName="text-[0.8rem] font-medium uppercase tracking-[0.16em] text-text-muted hover:text-accent-primary sm:text-sm"
               />
             </motion.div>
             {availabilityText ? (
-              <motion.div
-                variants={itemVariants}
-                className="mt-10"
-              >
-                <p className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 font-geist text-sm font-medium text-text-secondary">
+              <motion.div variants={itemVariants} className="mt-8 sm:mt-10">
+                <p className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/70 px-4 py-2 font-geist text-sm font-medium text-text-secondary">
                   <MapPin className="h-4 w-4 text-accent-secondary" aria-hidden="true" />
                   <span>{availabilityText}</span>
                 </p>
@@ -153,17 +140,17 @@ export const Hero = () => {
           </motion.div>
           <motion.div
             variants={itemVariants}
-            className="mx-auto flex w-full max-w-sm justify-center md:max-w-md lg:max-w-none lg:pt-10"
+            className="mx-auto flex w-full max-w-sm justify-center md:max-w-md lg:max-w-none"
           >
-            <div className="w-full overflow-hidden rounded-[2rem] border border-border/80 bg-card p-3 shadow-sm">
-              <div className="overflow-hidden rounded-[1.5rem] bg-secondary/20">
+            <div className="w-full overflow-hidden rounded-[1.75rem] border border-border/70 bg-card p-2.5 shadow-[0_18px_50px_rgba(47,47,47,0.06)] sm:p-3">
+              <div className="overflow-hidden rounded-[1.25rem] bg-secondary/20">
                 <Image
                   src={personalInfo.avatarUrl}
                   alt={`${personalInfo.name} professional photograph`}
                   width={920}
                   height={1150}
                   sizes="(min-width: 1280px) 460px, (min-width: 1024px) 420px, (min-width: 768px) 448px, calc(100vw - 40px)"
-                  className="aspect-[4/5] h-auto w-full object-cover"
+                  className="aspect-[3/4] h-auto w-full object-cover"
                   priority
                 />
               </div>
