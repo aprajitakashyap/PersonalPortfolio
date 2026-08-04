@@ -28,6 +28,7 @@ function ProjectCard({
   index: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
   const prefersReducedMotion = useReducedMotion();
 
@@ -41,6 +42,13 @@ function ProjectCard({
         ease: "easeOut",
         delay: prefersReducedMotion ? 0 : Math.min(index * 0.08, 0.3),
       }}
+      onMouseEnter={() => videoRef.current?.play().catch(() => {})}
+      onMouseLeave={() => {
+        if (videoRef.current) {
+          videoRef.current.pause();
+          videoRef.current.currentTime = 0;
+        }
+      }}
       className={cn(
         "group relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border/70 bg-card shadow-[0_4px_20px_rgba(47,47,47,0.04)]",
         "transition-[border-color,box-shadow,transform] duration-300 ease-out",
@@ -48,7 +56,7 @@ function ProjectCard({
       )}
     >
       {/* Image / Preview */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary/40">
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary/40" data-cursor-hover>
         {project.coverImage ? (
           <Image
             src={project.coverImage}
@@ -64,8 +72,21 @@ function ProjectCard({
             </span>
           </div>
         )}
+        
+        {/* Video Preview Overlay */}
+        {project.previewVideo && (
+          <video
+            ref={videoRef}
+            src={project.previewVideo}
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 z-10 h-full w-full object-cover opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
+          />
+        )}
+        
         {/* Year badge */}
-        <span className="absolute right-3 top-3 rounded-full border border-border/50 bg-background/80 px-2.5 py-0.5 font-geist text-[0.65rem] font-medium text-text-muted backdrop-blur-sm">
+        <span className="absolute right-3 top-3 z-20 rounded-full border border-border/50 bg-background/80 px-2.5 py-0.5 font-geist text-[0.65rem] font-medium text-text-muted backdrop-blur-sm">
           {project.date}
         </span>
       </div>

@@ -3,10 +3,8 @@
 import { useRef } from "react";
 import { Mail } from "lucide-react";
 import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
-import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { Section } from "@/components/common/Section";
-import { SocialLinks } from "@/components/common/SocialLinks";
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/personal";
 
@@ -70,16 +68,6 @@ export function Contact() {
             to hear from you.
           </motion.p>
 
-          {/* Social links */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-8 flex justify-center"
-          >
-            <SocialLinks
-              linkClassName="text-[0.8rem] font-medium uppercase tracking-[0.16em] text-text-muted hover:text-accent-primary sm:text-sm"
-            />
-          </motion.div>
-
           {/* Contact Form */}
           <motion.form
             variants={itemVariants}
@@ -113,7 +101,7 @@ export function Contact() {
                 id="message"
                 name="message"
                 rows={4}
-                placeholder="Reason to connect..."
+                placeholder="I'd love to hear about your project or how we can collaborate..."
                 className="w-full resize-none rounded-md border border-border/70 bg-card px-4 py-3 text-sm font-medium text-text-primary placeholder:text-text-muted focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary"
                 required
               />

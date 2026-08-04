@@ -3,9 +3,9 @@ import type { PersonalInfo, SocialLink } from "@/types";
 export const personalInfo: PersonalInfo = {
   greeting: "Hello, I'm",
   name: "Aprajita Kashyap",
-  headline: "Computer Science Undergraduate & Full-Stack Developer.",
+  headline: "Software Engineer & Full-Stack Developer.",
   intro: [
-    "Computer Science undergraduate with hands-on experience in software engineering through industry internships and full-stack projects.",
+    "Passionate about building scalable, user-centric applications and solving complex engineering challenges.",
     "Specialized in developing web applications, designing & integrating RESTful APIs, and leveraging AI-assisted development tools.",
   ],
   primaryCtaLabel: "Explore Projects",

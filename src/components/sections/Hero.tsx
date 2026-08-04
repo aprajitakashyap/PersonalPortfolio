@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { Section } from "@/components/common/Section";
-import { SectionHeading } from "@/components/common/SectionHeading";
 import { SocialLinks } from "@/components/common/SocialLinks";
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/personal";
@@ -62,24 +61,24 @@ export const Hero = () => {
             variants={containerVariants}
           >
             <motion.div variants={itemVariants} className="w-full">
-              <SectionHeading
-                label={personalInfo.greeting}
-                title={personalInfo.name}
-                titleAs="p"
-                className="max-w-2xl space-y-3 sm:space-y-4"
-                labelClassName="text-[0.7rem] font-medium uppercase tracking-[0.25em] text-accent-secondary/90 sm:text-xs"
-                titleClassName="font-[family-name:var(--font-outfit)] text-[2.9rem] font-semibold leading-[0.95] tracking-[-0.025em] text-text-primary sm:text-5xl lg:text-[3.7rem]"
-              />
+              <div className="max-w-2xl space-y-3 sm:space-y-4">
+                <p className="font-[family-name:var(--font-outfit)] text-lg font-light italic text-accent-secondary/80 sm:text-xl">
+                  {personalInfo.greeting}
+                </p>
+                <p className="font-[family-name:var(--font-outfit)] text-[2.9rem] font-semibold italic leading-[1.0] tracking-[-0.025em] text-text-primary sm:text-5xl lg:text-[3.7rem]">
+                  {personalInfo.name}
+                </p>
+              </div>
             </motion.div>
             <motion.h1
               variants={itemVariants}
-              className="mt-8 max-w-4xl font-geist text-[2.65rem] font-semibold leading-[0.95] tracking-[-0.035em] text-text-primary sm:mt-10 sm:text-5xl sm:leading-[0.95] lg:mt-12 lg:text-[4rem]"
+              className="mt-8 max-w-4xl font-[family-name:var(--font-outfit)] text-[2.65rem] font-bold italic leading-[1.05] tracking-[-0.03em] text-text-primary sm:mt-10 sm:text-5xl lg:mt-12 lg:text-[4rem]"
             >
               <span className="block sm:inline">{headlineLead}</span>
               {headlineAccent ? (
                 <>
                   {" "}
-                  <span className="mt-2 block bg-gradient-to-r from-[#A8BBA3] via-[#B8A07A] to-[#B87C4C] bg-clip-text text-transparent sm:mt-0 sm:inline">
+                  <span className="mt-2 block bg-gradient-to-r from-[#5C6B2E] via-[#7A8C44] to-[#96A855] bg-clip-text text-transparent sm:mt-0 sm:inline">
                     {headlineAccent}
                   </span>
                 </>

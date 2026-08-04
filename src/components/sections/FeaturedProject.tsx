@@ -20,10 +20,13 @@ function TechTag({ tag }: { tag: string }) {
 }
 
 export function FeaturedProject() {
-  const featured = projects.find((p) => p.featured) ?? projects[0];
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const prefersReducedMotion = useReducedMotion();
+
+  // Find the first featured project
+  const featured = projects.find((p) => p.featured) || projects[0];
 
   const containerVariants: Variants = {
     hidden: { opacity: prefersReducedMotion ? 1 : 0 },
@@ -31,7 +34,7 @@ export function FeaturedProject() {
       opacity: 1,
       transition: prefersReducedMotion
         ? {}
-        : { staggerChildren: 0.12, delayChildren: 0.05 },
+        : { staggerChildren: 0.15, delayChildren: 0.1 },
     },
   };
 
@@ -40,7 +43,7 @@ export function FeaturedProject() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: prefersReducedMotion ? {} : { duration: 0.4, ease: "easeOut" as const },
+      transition: prefersReducedMotion ? {} : { duration: 0.5, ease: "easeOut" as const },
     },
   };
 
@@ -52,10 +55,10 @@ export function FeaturedProject() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-16 xl:gap-20"
+          className="grid gap-12 lg:grid-cols-[1.1fr_1.3fr] lg:gap-16 xl:gap-24"
         >
-          {/* Left: Text content */}
-          <div className="flex flex-col">
+          {/* Content Column */}
+          <div className="flex flex-col justify-center order-2 lg:order-1">
             <motion.div variants={itemVariants}>
               <SectionHeading
                 label="Featured Project"
@@ -68,78 +71,88 @@ export function FeaturedProject() {
 
             <motion.p
               variants={itemVariants}
-              className="mt-5 text-base font-medium leading-relaxed text-text-secondary sm:text-lg"
-            >
-              {featured.shortDescription}
-            </motion.p>
-
-            <motion.p
-              variants={itemVariants}
-              className="mt-4 max-w-lg text-sm leading-7 text-text-secondary sm:text-base"
+              className="mt-6 text-base leading-relaxed text-text-secondary sm:text-lg"
             >
               {featured.description}
             </motion.p>
 
             <motion.div
               variants={itemVariants}
-              className="mt-6 flex flex-wrap gap-2"
+              className="mt-8 flex flex-wrap gap-2"
             >
               {featured.tags.map((tag) => (
-                <TechTag key={tag} tag={tag} />
+                <span
+                  key={tag}
+                  className="inline-flex items-center rounded-full border border-border/70 bg-card px-3 py-1 font-geist text-xs font-medium text-text-secondary shadow-sm"
+                >
+                  {tag}
+                </span>
               ))}
             </motion.div>
 
             <motion.div
               variants={itemVariants}
-              className="mt-8 flex flex-wrap gap-3"
+              className="mt-10 flex flex-wrap items-center gap-5"
             >
-              <Button
-                asChild
-                size="lg"
-                className="group h-11 rounded-md px-6 font-geist text-sm font-medium"
-              >
-                <Link
-                  href={featured.liveUrl || featured.githubUrl || "#projects"}
-                  target={featured.liveUrl || featured.githubUrl ? "_blank" : undefined}
-                  rel="noreferrer"
-                >
-                  <span>Explore Project</span>
-                  <ArrowUpRight
-                    className="transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    aria-hidden="true"
-                  />
-                </Link>
-              </Button>
               {featured.githubUrl && (
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="h-11 rounded-md border-border px-6 font-geist text-sm font-medium text-text-primary hover:bg-card"
+                <Link
+                  href={featured.githubUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-2 font-geist text-sm font-semibold text-text-primary transition-colors hover:text-accent-primary"
+                  data-cursor-hover
                 >
-                  <Link href={featured.githubUrl} target="_blank" rel="noreferrer">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-card shadow-sm border border-border/70 transition-transform group-hover:scale-105 group-hover:border-accent-primary/40">
                     <Github className="h-4 w-4" aria-hidden="true" />
-                    <span>View Code</span>
-                  </Link>
-                </Button>
+                  </span>
+                  <span>View Source</span>
+                </Link>
+              )}
+              {featured.liveUrl && (
+                <Link
+                  href={featured.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-2 font-geist text-sm font-semibold text-text-primary transition-colors hover:text-accent-secondary"
+                  data-cursor-hover
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-card shadow-sm border border-border/70 transition-transform group-hover:scale-105 group-hover:border-accent-secondary/40">
+                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                  <span>Live Demo</span>
+                </Link>
               )}
             </motion.div>
           </div>
 
-          {/* Right: Preview image */}
+          {/* Visual Column */}
           <motion.div
             variants={itemVariants}
-            className="order-first lg:order-last"
+            className="group relative order-1 lg:order-2"
+            onMouseEnter={() => videoRef.current?.play().catch(() => {})}
+            onMouseLeave={() => {
+              if (videoRef.current) {
+                videoRef.current.pause();
+                videoRef.current.currentTime = 0;
+              }
+            }}
           >
-            <div className="group relative overflow-hidden rounded-[1.75rem] border border-border/70 bg-card shadow-[0_20px_60px_rgba(47,47,47,0.08)]">
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary/40">
+            {/* Abstract decorative element behind image */}
+            <div
+              className="absolute -inset-4 -z-10 hidden rounded-[2.5rem] bg-gradient-to-tr from-accent-primary/5 via-accent-secondary/5 to-transparent blur-2xl transition-opacity duration-500 group-hover:opacity-100 lg:block"
+              aria-hidden="true"
+            />
+
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] border border-border/80 bg-card shadow-[0_8px_40px_rgba(47,47,47,0.06)] transition-transform duration-500 ease-out group-hover:shadow-[0_16px_60px_rgba(92,107,46,0.12)] lg:aspect-[16/11]" data-cursor-hover>
+              <div className="absolute inset-0 bg-secondary/30">
                 {featured.coverImage ? (
                   <Image
                     src={featured.coverImage}
-                    alt={`${featured.title} project preview`}
+                    alt={`${featured.title} project interface`}
                     fill
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                    sizes="(min-width: 1280px) 640px, (min-width: 1024px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    priority
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -148,17 +161,11 @@ export function FeaturedProject() {
                         {featured.title.charAt(0)}
                       </div>
                       <p className="mt-2 font-geist text-sm text-text-muted">
-                        {featured.title}
+                        Preview unavailable
                       </p>
                     </div>
                   </div>
                 )}
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-card/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              </div>
-
-              {/* Project year badge */}
-              <div className="absolute right-4 top-4 rounded-full border border-border/60 bg-background/80 px-3 py-1 font-geist text-xs font-medium text-text-muted backdrop-blur-sm">
                 {featured.date}
               </div>
             </div>

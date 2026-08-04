@@ -32,7 +32,7 @@ const config: Config = {
         },
         primary: {
           DEFAULT: "var(--accent-primary)",
-          foreground: "var(--text-primary)",
+          foreground: "#FFFFFF",
         },
         secondary: {
           DEFAULT: "var(--background-secondary)",
