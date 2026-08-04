@@ -68,7 +68,7 @@ export const Hero = () => {
                 titleAs="p"
                 className="max-w-2xl space-y-3 sm:space-y-4"
                 labelClassName="text-[0.7rem] font-medium uppercase tracking-[0.25em] text-accent-secondary/90 sm:text-xs"
-                titleClassName="font-[family-name:var(--font-cormorant-garamond)] text-[2.9rem] font-semibold leading-[0.95] tracking-[-0.025em] text-text-primary sm:text-5xl lg:text-[3.7rem]"
+                titleClassName="font-[family-name:var(--font-outfit)] text-[2.9rem] font-semibold leading-[0.95] tracking-[-0.025em] text-text-primary sm:text-5xl lg:text-[3.7rem]"
               />
             </motion.div>
             <motion.h1

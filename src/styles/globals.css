@@ -5,15 +5,15 @@
 @layer base {
   :root {
     /* ==== OUR DESIGN TOKENS ==== */
-    --background-primary: #F9F8F6;
-    --background-secondary: #EFE9E3;
-    --background-card: #F7F4EA;
-    --accent-primary: #A8BBA3;
-    --accent-secondary: #B87C4C;
-    --text-primary: #2F2F2F;
-    --text-secondary: #6B6B6B;
-    --text-muted: #9A9A9A;
-    --border-light: #E7E2DB;
+    --background-primary: #FFFFFF;
+    --background-secondary: #F8FAFC;
+    --background-card: #FFFFFF;
+    --accent-primary: #4F46E5;
+    --accent-secondary: #6366F1;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #94A3B8;
+    --border-light: #E2E8F0;
 
     /* ==== SPACING TOKENS ==== */
     --space-unit: 8px;

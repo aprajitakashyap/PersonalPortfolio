@@ -45,7 +45,7 @@ export function FeaturedProject() {
   };
 
   return (
-    <Section id="featured-project" className="bg-secondary/30">
+    <Section id="projects" className="bg-secondary/30">
       <Container>
         <motion.div
           ref={ref}
@@ -61,7 +61,7 @@ export function FeaturedProject() {
                 label="Featured Project"
                 title={featured.title}
                 titleAs="h2"
-                titleClassName="font-[family-name:var(--font-cormorant-garamond)] text-[2.6rem] font-semibold leading-[1.05] tracking-[-0.02em] text-text-primary sm:text-5xl"
+                titleClassName="font-[family-name:var(--font-outfit)] text-[2.6rem] font-semibold leading-[1.05] tracking-[-0.02em] text-text-primary sm:text-5xl"
                 labelClassName="text-[0.7rem] font-medium uppercase tracking-[0.25em] text-accent-secondary/90 sm:text-xs"
               />
             </motion.div>
@@ -98,7 +98,11 @@ export function FeaturedProject() {
                 size="lg"
                 className="group h-11 rounded-md px-6 font-geist text-sm font-medium"
               >
-                <Link href={`#projects`}>
+                <Link
+                  href={featured.liveUrl || featured.githubUrl || "#projects"}
+                  target={featured.liveUrl || featured.githubUrl ? "_blank" : undefined}
+                  rel="noreferrer"
+                >
                   <span>Explore Project</span>
                   <ArrowUpRight
                     className="transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -140,7 +144,7 @@ export function FeaturedProject() {
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="font-[family-name:var(--font-cormorant-garamond)] text-6xl font-semibold text-accent-primary/40">
+                      <div className="font-[family-name:var(--font-outfit)] text-6xl font-semibold text-accent-primary/40">
                         {featured.title.charAt(0)}
                       </div>
                       <p className="mt-2 font-geist text-sm text-text-muted">

@@ -55,7 +55,7 @@ export function Contact() {
           {/* Heading */}
           <motion.h2
             variants={itemVariants}
-            className="mt-4 font-[family-name:var(--font-cormorant-garamond)] text-[2.8rem] font-semibold leading-[1.05] tracking-[-0.02em] text-text-primary sm:text-5xl"
+            className="mt-4 font-[family-name:var(--font-outfit)] text-[2.8rem] font-semibold leading-[1.05] tracking-[-0.02em] text-text-primary sm:text-5xl"
           >
             Let&apos;s Build Something Together.
           </motion.h2>
@@ -80,22 +80,56 @@ export function Contact() {
             />
           </motion.div>
 
-          {/* Primary CTA */}
-          <motion.div variants={itemVariants} className="mt-8">
+          {/* Contact Form */}
+          <motion.form
+            variants={itemVariants}
+            className="mx-auto mt-12 max-w-md space-y-4 text-left"
+          >
+            <div>
+              <label htmlFor="name" className="sr-only">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                className="w-full rounded-md border border-border/70 bg-card px-4 py-3 text-sm font-medium text-text-primary placeholder:text-text-muted focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="sr-only">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                className="w-full rounded-md border border-border/70 bg-card px-4 py-3 text-sm font-medium text-text-primary placeholder:text-text-muted focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="sr-only">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows={4}
+                placeholder="Reason to connect..."
+                className="w-full resize-none rounded-md border border-border/70 bg-card px-4 py-3 text-sm font-medium text-text-primary placeholder:text-text-muted focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary"
+                required
+              />
+            </div>
             <Button
-              asChild
+              type="submit"
               size="lg"
-              className="group h-12 rounded-md px-8 font-geist text-sm font-medium"
+              className="group h-12 w-full rounded-md px-8 font-[family-name:var(--font-outfit)] text-sm font-medium"
             >
-              <Link href={`mailto:${personalInfo.email}`}>
-                <Mail
-                  className="h-4 w-4 transition-transform duration-200 ease-out group-hover:-translate-y-0.5"
-                  aria-hidden="true"
-                />
-                <span>Get In Touch</span>
-              </Link>
+              <span>Send Message</span>
+              <Mail
+                className="ml-2 h-4 w-4 transition-transform duration-200 ease-out group-hover:translate-x-1"
+                aria-hidden="true"
+              />
             </Button>
-          </motion.div>
+          </motion.form>
 
           {/* Availability badge */}
           {personalInfo.availability && (

@@ -3,14 +3,14 @@ import type { PersonalInfo, SocialLink } from "@/types";
 export const personalInfo: PersonalInfo = {
   greeting: "Hello, I'm",
   name: "Aprajita Kashyap",
-  headline: "Software Engineer building thoughtful digital experiences.",
+  headline: "Computer Science Undergraduate & Full-Stack Developer.",
   intro: [
-    "I focus on creating clean, performant, and user-centric applications — from scalable backend systems to polished frontends.",
-    "My passion lies in solving complex problems with elegant solutions and building software that genuinely makes a difference.",
+    "Computer Science undergraduate with hands-on experience in software engineering through industry internships and full-stack projects.",
+    "Specialized in developing web applications, designing & integrating RESTful APIs, and leveraging AI-assisted development tools.",
   ],
   primaryCtaLabel: "Explore Projects",
   secondaryCtaLabel: "Resume",
-  email: "aprajita.kashyap@example.com",
+  email: "kashyapaprajita2@gmail.com",
   location: "India",
   availability: "Open to Opportunities",
   avatarUrl: "/avatar.jpg",
@@ -31,6 +31,6 @@ export const socialLinks: SocialLink[] = [
   {
     id: "3",
     name: "Email",
-    url: "mailto:aprajita.kashyap@example.com",
+    url: "mailto:kashyapaprajita2@gmail.com",
   },
 ];

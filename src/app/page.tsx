@@ -6,10 +6,12 @@ import { FeaturedProject } from "@/components/sections/FeaturedProject";
 import { ProjectGallery } from "@/components/sections/ProjectGallery";
 import { ExperienceSection } from "@/components/sections/Experience";
 import { Contact } from "@/components/sections/Contact";
+import { Preloader } from "@/components/common/Preloader";
 
 export default function Home() {
   return (
     <>
+      <Preloader />
       <Navbar />
       <main>
         <Hero />

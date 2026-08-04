@@ -8,7 +8,6 @@ export const navigationConfig = {
     { label: "Home", href: "#home" },
     { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
-    { label: "Achievements", href: "#achievements" },
     { label: "Contact", href: "#contact" },
   ] satisfies NavItem[],
 };

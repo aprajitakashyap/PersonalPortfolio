@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 
 export const seoConfig = {
   title: {
-    default: "Aprajita Kashyap | Portfolio",
+    default: "Aprajita Kashyap | Software Engineer & Full-Stack Developer",
     template: "%s | Aprajita Kashyap",
   } satisfies Metadata["title"],
-  description: "Engineering Portfolio showcasing projects, experience, and technical work",
-  keywords: ["portfolio", "software engineer", "developer"],
+  description: "Computer Science Undergraduate portfolio showcasing full-stack applications, RESTful APIs, internships, and research.",
+  keywords: ["Aprajita Kashyap", "software engineer", "full stack developer", "React", "Node.js", "Express.js", "Java", "Python", "Flutter"],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://example.com",
+    url: "https://github.com/aprajitakashyap",
     siteName: "Aprajita Kashyap Portfolio",
   } satisfies Metadata["openGraph"],
   twitter: {

@@ -132,7 +132,7 @@ export function ExperienceSection() {
           <SectionHeading
             label="Experience"
             title="Where I've Worked"
-            description="My professional journey — internships, open-source contributions, and teaching roles that shaped how I think about engineering."
+            description="My professional journey — internships and roles that shaped how I think about engineering."
           />
         </motion.div>
 

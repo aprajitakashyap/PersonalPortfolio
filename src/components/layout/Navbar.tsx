@@ -13,14 +13,6 @@ import { MobileMenu } from "./MobileMenu";
 const MOBILE_BREAKPOINT = 1024;
 
 function getBrandMark(name: string) {
-  const initials = name
-    .split(" ")
-    .map((part) => part.trim()[0])
-    .filter(Boolean)
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
-
   return "AK";
 }
 
@@ -34,6 +26,41 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 8);
+
+      const sectionIds = navItems
+        .map((item) => item.href)
+        .filter((href) => href.startsWith("#"))
+        .map((href) => href.slice(1));
+
+      const scrollPosition = window.scrollY + 140; // 140px header offset
+
+      // If at top of page
+      if (window.scrollY < 100) {
+        setActiveSection("#home");
+        return;
+      }
+
+      // If near bottom of page, highlight last section
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 60
+      ) {
+        setActiveSection(navItems[navItems.length - 1].href);
+        return;
+      }
+
+      let current = "#home";
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            current = `#${id}`;
+          }
+        }
+      }
+      setActiveSection(current);
     };
 
     handleScroll();
@@ -41,46 +68,6 @@ export function Navbar() {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const sectionIds = navItems
-      .map((item) => item.href)
-      .filter((href) => href.startsWith("#"))
-      .map((href) => href.slice(1));
-
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((section): section is HTMLElement => section !== null);
-
-    if (sections.length === 0) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (first, second) =>
-              second.intersectionRatio - first.intersectionRatio
-          );
-
-        if (visibleEntries.length > 0) {
-          setActiveSection(`#${visibleEntries[0].target.id}`);
-        }
-      },
-      {
-        rootMargin: "-30% 0px -55% 0px",
-        threshold: [0.2, 0.4, 0.6],
-      }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      observer.disconnect();
     };
   }, [navItems]);
 
@@ -90,7 +77,6 @@ export function Navbar() {
     }
 
     const originalOverflow = document.body.style.overflow;
-
     document.body.style.overflow = "hidden";
 
     const handleEscape = (event: KeyboardEvent) => {
@@ -169,7 +155,7 @@ export function Navbar() {
               <span
                 className={cn(
                   "inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/70 bg-card/80 text-sm font-semibold tracking-[0.2em] text-text-primary shadow-sm transition-colors duration-200 ease-out md:h-10 md:w-10 md:text-base",
-                  "font-[family-name:var(--font-cormorant-garamond)]"
+                  "font-[family-name:var(--font-outfit)]"
                 )}
                 aria-hidden="true"
               >
@@ -195,8 +181,8 @@ export function Navbar() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "rounded-md font-geist text-sm font-medium text-text-secondary transition-colors duration-150 hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                          isActive && "text-text-primary"
+                          "relative py-1 font-geist text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                          isActive ? "text-text-primary font-semibold" : "text-text-secondary hover:text-text-primary"
                         )}
                         aria-current={isActive ? "page" : undefined}
                         onClick={(event) => {
@@ -207,8 +193,8 @@ export function Navbar() {
                         <span>{item.label}</span>
                         <span
                           className={cn(
-                            "mt-1 block h-px w-full origin-left scale-x-0 bg-accent-primary transition-transform duration-150 ease-out",
-                            isActive && "scale-x-100"
+                            "mt-1 block h-0.5 w-full rounded-full bg-accent-primary transition-transform duration-200 ease-out",
+                            isActive ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
                           )}
                           aria-hidden="true"
                         />

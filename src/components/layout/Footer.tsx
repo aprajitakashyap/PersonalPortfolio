@@ -13,7 +13,7 @@ export function Footer() {
           {/* Brand mark */}
           <Link
             href="#home"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-card/80 font-[family-name:var(--font-cormorant-garamond)] text-base font-semibold tracking-[0.15em] text-text-primary shadow-sm transition-colors duration-200 ease-out hover:border-accent-primary/40 hover:text-accent-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-card/80 font-[family-name:var(--font-outfit)] text-base font-semibold tracking-[0.15em] text-text-primary shadow-sm transition-colors duration-200 ease-out hover:border-accent-primary/40 hover:text-accent-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             aria-label="Back to top"
           >
             AK

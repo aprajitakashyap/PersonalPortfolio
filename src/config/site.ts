@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Aprajita Kashyap",
-  description: "Engineering Portfolio",
-  url: "https://example.com",
+  description: "Computer Science Undergraduate & Full-Stack Developer Portfolio",
+  url: "https://github.com/aprajitakashyap",
   author: "Aprajita Kashyap",
 };

@@ -51,7 +51,7 @@ const config: Config = {
         ring: "var(--accent-primary)",
       },
       fontFamily: {
-        geist: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        geist: ["var(--font-outfit)", "system-ui", "sans-serif"],
         inter: ["var(--font-inter)", "system-ui", "sans-serif"],
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
