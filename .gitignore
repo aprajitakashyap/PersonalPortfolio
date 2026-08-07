@@ -41,8 +41,6 @@ coverage
 .turbo
 /docs
 /images
-
-# Personal data
-public/avatar.jpg
-public/avatar.png
-public/resume.pdf
+/public
+/docs/design
+/docs/product
