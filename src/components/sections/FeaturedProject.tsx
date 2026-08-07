@@ -137,13 +137,21 @@ export function FeaturedProject() {
               }
             }}
           >
-            {/* Abstract decorative element behind image */}
+            {/* Decorative glow */}
             <div
               className="absolute -inset-4 -z-10 hidden rounded-[2.5rem] bg-gradient-to-tr from-accent-primary/5 via-accent-secondary/5 to-transparent blur-2xl transition-opacity duration-500 group-hover:opacity-100 lg:block"
               aria-hidden="true"
             />
 
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] border border-border/80 bg-card shadow-[0_8px_40px_rgba(47,47,47,0.06)] transition-transform duration-500 ease-out group-hover:shadow-[0_16px_60px_rgba(92,107,46,0.12)] lg:aspect-[16/11]" data-cursor-hover>
+            <div
+              className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] border border-border/80 bg-card shadow-[0_8px_40px_rgba(47,47,47,0.06)] transition-shadow duration-500 ease-out group-hover:shadow-[0_16px_60px_rgba(92,107,46,0.12)] lg:aspect-[16/11]"
+              data-cursor-hover
+            >
+              {/* Date badge */}
+              <span className="absolute right-4 top-4 z-20 rounded-full border border-border/60 bg-background/90 px-3 py-1 font-geist text-[0.65rem] font-medium text-text-muted backdrop-blur-sm">
+                {featured.date}
+              </span>
+
               <div className="absolute inset-0 bg-secondary/30">
                 {featured.coverImage ? (
                   <Image
@@ -155,18 +163,25 @@ export function FeaturedProject() {
                     priority
                   />
                 ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="font-[family-name:var(--font-outfit)] text-6xl font-semibold text-accent-primary/40">
-                        {featured.title.charAt(0)}
-                      </div>
-                      <p className="mt-2 font-geist text-sm text-text-muted">
-                        Preview unavailable
-                      </p>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-gradient-to-br from-secondary/80 to-background/60 p-8">
+                    <div className="font-[family-name:var(--font-outfit)] text-8xl font-bold text-accent-primary/20">
+                      {featured.title.charAt(0)}
                     </div>
+                    <p className="font-geist text-sm text-text-muted">Preview coming soon</p>
                   </div>
                 )}
-                {featured.date}
+
+                {/* Video overlay on hover */}
+                {featured.previewVideo && (
+                  <video
+                    ref={videoRef}
+                    src={featured.previewVideo}
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 z-10 h-full w-full object-cover opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
+                  />
+                )}
               </div>
             </div>
           </motion.div>

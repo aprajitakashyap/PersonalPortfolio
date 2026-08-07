@@ -13,7 +13,7 @@ export const personalInfo: PersonalInfo = {
   email: "kashyapaprajita2@gmail.com",
   location: "India",
   availability: "Open to Opportunities",
-  avatarUrl: "/avatar.jpg",
+  avatarUrl: "/images/ExtractedmyPhoto.png",
   resumeUrl: "/resume.pdf",
 };
 

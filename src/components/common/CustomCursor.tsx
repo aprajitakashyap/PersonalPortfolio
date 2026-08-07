@@ -4,10 +4,15 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useSpring } from "framer-motion";
 
 export function CustomCursor() {
+  const [mounted, setMounted] = useState(false);
   const cursorRef = useRef<HTMLDivElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const springConfig = { stiffness: 500, damping: 40, mass: 0.4 };
   const x = useSpring(0, springConfig);
@@ -18,6 +23,8 @@ export function CustomCursor() {
   const dotY = useSpring(0, fastSpring);
 
   useEffect(() => {
+    if (!mounted) return;
+
     const move = (e: MouseEvent) => {
       x.set(e.clientX);
       y.set(e.clientY);
@@ -57,9 +64,9 @@ export function CustomCursor() {
       window.removeEventListener("mouseover", handleEnter);
       window.removeEventListener("mouseout", handleLeave);
     };
-  }, [x, y, dotX, dotY, isVisible]);
+  }, [x, y, dotX, dotY, isVisible, mounted]);
 
-  if (typeof window === "undefined") return null;
+  if (!mounted) return null;
 
   return (
     <>

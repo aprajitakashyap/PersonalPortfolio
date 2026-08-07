@@ -48,16 +48,16 @@ export const Hero = () => {
   };
 
   return (
-    <Section id="home" className="overflow-hidden pt-10 md:pt-14 lg:pt-16">
+    <Section id="home" className="pt-8 pb-0 md:pt-12 lg:pt-14 overflow-visible">
       <Container>
         <motion.div
-          className="grid items-center gap-10 md:gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(320px,400px)] lg:items-start lg:gap-16 xl:grid-cols-[minmax(0,1.05fr)_minmax(360px,440px)] xl:gap-20"
+          className="relative flex flex-col lg:block"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.div
-            className="flex w-full flex-col items-center text-center lg:items-start lg:text-left"
+            className="relative z-10 flex w-full flex-col items-center text-center lg:w-[60%] lg:items-start lg:text-left"
             variants={containerVariants}
           >
             <motion.div variants={itemVariants} className="w-full">
@@ -139,20 +139,19 @@ export const Hero = () => {
           </motion.div>
           <motion.div
             variants={itemVariants}
-            className="mx-auto flex w-full max-w-sm justify-center md:max-w-md lg:max-w-none"
+            className="pointer-events-none relative z-0 mt-8 flex w-full justify-center mix-blend-multiply lg:absolute lg:-bottom-16 lg:-right-16 lg:mt-0 lg:block lg:w-[600px] xl:-bottom-24 xl:-right-32 xl:w-[750px] 2xl:-right-40 2xl:w-[850px]"
           >
-            <div className="w-full overflow-hidden rounded-[1.75rem] border border-border/70 bg-card p-2.5 shadow-[0_18px_50px_rgba(47,47,47,0.06)] sm:p-3">
-              <div className="overflow-hidden rounded-[1.25rem] bg-secondary/20">
-                <Image
-                  src={personalInfo.avatarUrl}
-                  alt={`${personalInfo.name} professional photograph`}
-                  width={920}
-                  height={1150}
-                  sizes="(min-width: 1280px) 460px, (min-width: 1024px) 420px, (min-width: 768px) 448px, calc(100vw - 40px)"
-                  className="aspect-[3/4] h-auto w-full object-cover"
-                  priority
-                />
-              </div>
+            {/* Floating sketch portrait — absolute, bleeds off edge */}
+            <div className="relative w-full max-w-md select-none opacity-90 lg:max-w-none">
+              <Image
+                src={personalInfo.avatarUrl}
+                alt={`${personalInfo.name} professional photograph`}
+                width={920}
+                height={1150}
+                sizes="(min-width: 1536px) 850px, (min-width: 1280px) 750px, (min-width: 1024px) 600px, 100vw"
+                className="h-auto w-full object-contain object-bottom"
+                priority
+              />
             </div>
           </motion.div>
         </motion.div>
