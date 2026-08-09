@@ -62,9 +62,9 @@ function TimelineEntry({
       {/* Content card */}
       <div
         className={cn(
-          "group mb-10 flex-1 overflow-hidden rounded-2xl border border-border/60 bg-card p-5 shadow-[0_2px_12px_rgba(47,47,47,0.04)]",
+          "group mb-10 flex-1 overflow-hidden rounded-2xl border border-[var(--card-border)] bg-gradient-to-br from-[#F7F5F0] via-[#F3F0E8] to-[#EDEAE0] p-5 shadow-[0_2px_12px_rgba(92,107,46,0.05)]",
           "transition-[border-color,box-shadow] duration-300 ease-out",
-          "hover:border-accent-primary/30 hover:shadow-[0_8px_30px_rgba(168,187,163,0.12)]",
+          "hover:border-accent-primary/30 hover:shadow-[0_8px_32px_rgba(92,107,46,0.10)]",
           isLast && "mb-0"
         )}
       >

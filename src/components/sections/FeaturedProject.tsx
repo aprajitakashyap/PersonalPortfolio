@@ -144,7 +144,7 @@ export function FeaturedProject() {
             />
 
             <div
-              className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] border border-border/80 bg-card shadow-[0_8px_40px_rgba(47,47,47,0.06)] transition-shadow duration-500 ease-out group-hover:shadow-[0_16px_60px_rgba(92,107,46,0.12)] lg:aspect-[16/11]"
+              className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] border border-[var(--card-border)] bg-gradient-to-br from-[#F7F5F0] to-[#EDEAE0] shadow-[0_8px_40px_rgba(92,107,46,0.07)] transition-shadow duration-500 ease-out group-hover:shadow-[0_20px_60px_rgba(92,107,46,0.14)] lg:aspect-[16/11]"
               data-cursor-hover
             >
               {/* Date badge */}

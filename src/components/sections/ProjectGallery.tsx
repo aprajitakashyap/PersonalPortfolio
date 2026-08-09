@@ -50,9 +50,9 @@ function ProjectCard({
         }
       }}
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border/70 bg-card shadow-[0_4px_20px_rgba(47,47,47,0.04)]",
+        "group relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-[var(--card-border)] bg-gradient-to-b from-[#F7F5F0] to-[#F0EDE6] shadow-[0_2px_12px_rgba(92,107,46,0.05)]",
         "transition-[border-color,box-shadow,transform] duration-300 ease-out",
-        "hover:-translate-y-1 hover:border-accent-primary/40 hover:shadow-[0_12px_36px_rgba(168,187,163,0.18)]"
+        "hover:-translate-y-1.5 hover:border-accent-primary/30 hover:shadow-[0_16px_40px_rgba(92,107,46,0.12),0_4px_12px_rgba(92,107,46,0.06)]"
       )}
     >
       {/* Image / Preview */}

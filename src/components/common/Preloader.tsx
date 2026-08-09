@@ -48,8 +48,8 @@ export function Preloader() {
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ duration: 1, ease: "easeInOut", delay: 0.6 }}
-            className="mt-8 h-px w-48 bg-border origin-left"
+            transition={{ duration: 1.4, ease: "easeInOut", delay: 0.5 }}
+            className="mt-8 h-[2px] w-64 rounded-full bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-primary origin-left"
           />
         </motion.div>
       )}

@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import Link from "next/link";
+import { Cormorant_Garamond } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/common/Container";
 import { navigationConfig, siteConfig } from "@/config";
@@ -10,18 +11,21 @@ import { personalInfo } from "@/data/personal";
 import { cn } from "@/lib/utils";
 import { MobileMenu } from "./MobileMenu";
 
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  style: ["italic"],
+  display: "swap",
+});
+
 const MOBILE_BREAKPOINT = 1024;
 
-function getBrandMark(name: string) {
-  return "AK";
-}
 
 export function Navbar() {
   const navItems = navigationConfig.mainNav;
   const [activeSection, setActiveSection] = useState("#home");
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const brandMark = useMemo(() => getBrandMark(siteConfig.author), []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -137,10 +141,10 @@ export function Navbar() {
         <Container>
           <div
             className={cn(
-              "mt-5 flex min-h-16 items-center justify-between rounded-2xl border border-transparent px-4 py-3 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-200 ease-out md:px-6",
+              "mt-5 flex min-h-16 items-center justify-between rounded-2xl px-4 py-3 transition-all duration-300 ease-out md:px-6",
               hasScrolled
-                ? "border-border bg-background/80 shadow-sm backdrop-blur-xl"
-                : "bg-transparent"
+                ? "border border-border/80 bg-background/85 shadow-[0_4px_24px_rgba(92,107,46,0.08)] backdrop-blur-xl"
+                : "border border-[var(--card-border)]/60 bg-background/40 backdrop-blur-sm"
             )}
           >
             <Link
@@ -154,12 +158,20 @@ export function Navbar() {
             >
               <span
                 className={cn(
-                  "inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/70 bg-card/80 text-sm font-semibold tracking-[0.2em] text-text-primary shadow-sm transition-colors duration-200 ease-out md:h-10 md:w-10 md:text-base",
-                  "font-[family-name:var(--font-outfit)]"
+                  "inline-flex h-10 w-10 items-center justify-center rounded-full shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_2px_8px_rgba(92,107,46,0.15)] transition-all duration-200 ease-out group-hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_4px_16px_rgba(92,107,46,0.25)] md:h-11 md:w-11",
+                  "bg-gradient-to-br from-[#f7f5f0] via-[#edeae0] to-[#e0ddd0] border border-[var(--card-border)]"
                 )}
                 aria-hidden="true"
               >
-                {brandMark}
+                <span
+                  className={cn(
+                    cormorant.className,
+                    "bg-gradient-to-br from-[#5C6B2E] via-[#7A8C44] to-[#4a5626] bg-clip-text text-transparent text-xl font-700 italic leading-none tracking-tight md:text-2xl"
+                  )}
+                  style={{ fontWeight: 700 }}
+                >
+                  AK
+                </span>
               </span>
               <span className="ml-3 hidden overflow-hidden text-sm font-medium tracking-[-0.025em] text-text-secondary md:inline-flex md:items-center">
                 <span className="translate-x-2 opacity-0 transition-[opacity,transform] duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100 motion-reduce:transition-none motion-reduce:translate-x-0 motion-reduce:opacity-100">
@@ -181,8 +193,9 @@ export function Navbar() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "relative py-1 font-geist text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                          isActive ? "text-text-primary font-semibold" : "text-text-secondary hover:text-text-primary"
+                          "relative py-1 text-[0.95rem] font-medium tracking-wide transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                          cormorant.className,
+                          isActive ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
                         )}
                         aria-current={isActive ? "page" : undefined}
                         onClick={(event) => {

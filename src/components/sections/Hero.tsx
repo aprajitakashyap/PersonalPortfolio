@@ -1,14 +1,23 @@
 "use client";
 
-import { ArrowDown, MapPin } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { Cormorant_Garamond } from "next/font/google";
 import { Container } from "@/components/common/Container";
 import { Section } from "@/components/common/Section";
 import { SocialLinks } from "@/components/common/SocialLinks";
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/personal";
+import { cn } from "@/lib/utils";
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  style: ["italic"],
+  display: "swap",
+});
 
 export const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
@@ -48,7 +57,7 @@ export const Hero = () => {
   };
 
   return (
-    <Section id="home" className="pt-8 pb-0 md:pt-12 lg:pt-14 overflow-visible">
+    <Section id="home" className="flex min-h-[calc(100vh-5rem)] items-center pt-8 pb-12 overflow-visible md:pt-10 lg:pt-0">
       <Container>
         <motion.div
           className="relative flex flex-col lg:block"
@@ -130,9 +139,20 @@ export const Hero = () => {
             </motion.div>
             {availabilityText ? (
               <motion.div variants={itemVariants} className="mt-8 sm:mt-10">
-                <p className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/70 px-4 py-2 font-geist text-sm font-medium text-text-secondary">
-                  <MapPin className="h-4 w-4 text-accent-secondary" aria-hidden="true" />
-                  <span>{availabilityText}</span>
+                <p className="inline-flex items-center gap-2.5 rounded-full border border-accent-primary/20 bg-gradient-to-r from-[#F7F5F0] to-[#EEF0E5] px-5 py-2.5 shadow-[0_2px_12px_rgba(92,107,46,0.08)]">
+                  <span className="relative flex h-2.5 w-2.5 shrink-0">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-primary opacity-50" aria-hidden="true" />
+                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-primary" aria-hidden="true" />
+                  </span>
+                  <span
+                    className={cn(
+                      cormorant.className,
+                      "text-base italic text-text-secondary tracking-wide"
+                    )}
+                    style={{ fontWeight: 600 }}
+                  >
+                    {availabilityText}
+                  </span>
                 </p>
               </motion.div>
             ) : null}
