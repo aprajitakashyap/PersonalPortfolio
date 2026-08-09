@@ -7,6 +7,7 @@ import { ProjectGallery } from "@/components/sections/ProjectGallery";
 import { ExperienceSection } from "@/components/sections/Experience";
 import { Contact } from "@/components/sections/Contact";
 import { Preloader } from "@/components/common/Preloader";
+import { SectionDivider } from "@/components/common/SectionDivider";
 
 export default function Home() {
   return (
@@ -15,10 +16,15 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <SectionDivider />
         <TechMarquee />
+        <SectionDivider />
         <FeaturedProject />
+        <SectionDivider />
         <ProjectGallery />
+        <SectionDivider />
         <ExperienceSection />
+        <SectionDivider />
         <Contact />
       </main>
       <Footer />

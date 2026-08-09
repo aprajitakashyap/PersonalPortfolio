@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Outfit, Inter, Cormorant_Garamond } from "next/font/google";
 import { seoConfig, siteConfig } from "@/config";
 import { CustomCursor } from "@/components/common/CustomCursor";
 import "@/styles/globals.css";
@@ -14,6 +14,14 @@ const outfit = Outfit({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-outfit",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  style: ["italic"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
@@ -37,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="cursor-none" suppressHydrationWarning>
       <body
-        className={`${outfit.variable} ${inter.variable} font-inter antialiased`}
+        className={`${outfit.variable} ${inter.variable} ${cormorant.variable} font-inter antialiased`}
         suppressHydrationWarning
       >
         <CustomCursor />

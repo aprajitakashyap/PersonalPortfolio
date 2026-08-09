@@ -3,20 +3,12 @@
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import Link from "next/link";
-import { Cormorant_Garamond } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/common/Container";
 import { navigationConfig, siteConfig } from "@/config";
 import { personalInfo } from "@/data/personal";
 import { cn } from "@/lib/utils";
 import { MobileMenu } from "./MobileMenu";
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  style: ["italic"],
-  display: "swap",
-});
 
 const MOBILE_BREAKPOINT = 1024;
 
@@ -165,10 +157,8 @@ export function Navbar() {
               >
                 <span
                   className={cn(
-                    cormorant.className,
-                    "bg-gradient-to-br from-[#5C6B2E] via-[#7A8C44] to-[#4a5626] bg-clip-text text-transparent text-xl font-700 italic leading-none tracking-tight md:text-2xl"
+                    "font-[family-name:var(--font-cormorant)] bg-gradient-to-br from-[#5C6B2E] via-[#7A8C44] to-[#4a5626] bg-clip-text text-transparent text-xl font-bold italic leading-none tracking-tight md:text-2xl"
                   )}
-                  style={{ fontWeight: 700 }}
                 >
                   AK
                 </span>
@@ -193,8 +183,7 @@ export function Navbar() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "relative py-1 text-[0.95rem] font-medium tracking-wide transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                          cormorant.className,
+                          "relative py-1 text-[0.95rem] font-medium tracking-wide transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background font-[family-name:var(--font-cormorant)] italic",
                           isActive ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
                         )}
                         aria-current={isActive ? "page" : undefined}

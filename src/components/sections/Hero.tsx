@@ -4,20 +4,12 @@ import { ArrowDown } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Cormorant_Garamond } from "next/font/google";
 import { Container } from "@/components/common/Container";
 import { Section } from "@/components/common/Section";
 import { SocialLinks } from "@/components/common/SocialLinks";
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/personal";
 import { cn } from "@/lib/utils";
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  style: ["italic"],
-  display: "swap",
-});
 
 export const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
@@ -146,10 +138,8 @@ export const Hero = () => {
                   </span>
                   <span
                     className={cn(
-                      cormorant.className,
-                      "text-base italic text-text-secondary tracking-wide"
+                      "font-[family-name:var(--font-cormorant)] text-base italic font-semibold text-text-secondary tracking-wide"
                     )}
-                    style={{ fontWeight: 600 }}
                   >
                     {availabilityText}
                   </span>
