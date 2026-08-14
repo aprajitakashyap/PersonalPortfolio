@@ -44,3 +44,10 @@ coverage
 /public
 /docs/design
 /docs/product
+# OpenNext
+.open-next
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
