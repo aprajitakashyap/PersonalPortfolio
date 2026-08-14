@@ -10,7 +10,7 @@ export const personalInfo: PersonalInfo = {
   ],
   primaryCtaLabel: "Explore Projects",
   secondaryCtaLabel: "Resume",
-  email: "kashyapaprajita2@gmail.com",
+  email: "aprajitaworks@gmail.com",
   location: "India",
   availability: "Open to Opportunities",
   avatarUrl: "/images/ExtractedmyPhoto.webp",
@@ -31,6 +31,6 @@ export const socialLinks: SocialLink[] = [
   {
     id: "3",
     name: "Email",
-    url: "mailto:kashyapaprajita2@gmail.com",
+    url: "mailto:aprajitaworks@gmail.com",
   },
 ];

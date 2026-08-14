@@ -107,7 +107,7 @@ In the project directory, you can run:
 **Aprajita Kashyap**
 - GitHub: [@aprajitakashyap](https://github.com/aprajitakashyap)
 - LinkedIn: [Aprajita Kashyap](https://linkedin.com/in/aprajitakashyap)
-- Email: [kashyapaprajita2@gmail.com](mailto:kashyapaprajita2@gmail.com)
+- Email: [aprajitaworks@gmail.com](mailto:aprajitaworks@gmail.com)
 
 ---
 

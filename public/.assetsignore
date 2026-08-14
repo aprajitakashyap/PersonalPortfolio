@@ -1,0 +1,2 @@
+# Override gitignore for static assets upload.
+# This file is empty to ensure all public assets (including gitignored webp images) are deployed.
