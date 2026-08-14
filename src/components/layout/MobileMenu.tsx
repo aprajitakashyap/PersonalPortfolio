@@ -37,11 +37,11 @@ export function MobileMenu({
     >
       <button
         type="button"
-        className="absolute inset-0 bg-text-primary/20 backdrop-blur-sm"
+        className="absolute inset-0 bg-text-primary/45 backdrop-blur-md"
         aria-label="Close navigation menu"
         onClick={onClose}
       />
-      <div className="absolute inset-x-5 top-5 rounded-[1.5rem] border border-border bg-background/95 p-5 shadow-sm">
+      <div className="absolute inset-x-5 top-5 rounded-[1.5rem] border border-border bg-card p-5 shadow-xl">
         <div className="flex items-center justify-between">
           <span className="font-geist text-lg font-semibold tracking-[-0.04em] text-text-primary">
             Navigation
