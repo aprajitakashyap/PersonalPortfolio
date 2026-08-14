@@ -9,7 +9,7 @@ export const projects: Project[] = [
       "InsightLoop is an AI-powered platform for collecting, processing, and analyzing customer feedback from multiple data sources into structured, actionable insights using interactive dashboards.",
     tags: ["React.js", "Node.js", "Express.js", "PostgreSQL", "JWT", "Render", "Prompt Engineering"],
     featured: true,
-    coverImage: "",
+    coverImage: "/projects/insightloop.webp",
     previewVideo: "", // Add your screen recording path here (e.g. "/projects/insightloop-demo.mp4")
     githubUrl: "https://github.com/aprajitakashyap/InsightLoop",
     date: "Jul 2026 – Present",
@@ -46,7 +46,7 @@ export const projects: Project[] = [
       "MarketMesh is a real-time reverse auction marketplace enabling local buyers to post RFQs and connect with nearby vendors using location-based discovery and live bidding.",
     tags: ["Node.js", "Express.js", "MongoDB Atlas", "Socket.io", "JWT", "Postman", "GeoJSON"],
     featured: false,
-    coverImage: "",
+    coverImage: "/projects/marketmesh.webp",
     previewVideo: "", // Add your screen recording path here
     githubUrl: "https://github.com/aprajitakashyap/MarketMesh",
     date: "Jan 2026 – May 2026",

@@ -40,8 +40,10 @@ coverage
 .cache
 .turbo
 /docs
-/images
-/public
+# Ignore personal images completely to keep them offline
+public/images/
+# Ignore project images completely
+public/projects/
 /docs/design
 /docs/product
 # OpenNext
