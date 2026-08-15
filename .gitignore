@@ -44,6 +44,9 @@ coverage
 public/images/
 # Ignore project images completely
 public/projects/
+# Ignore resume files completely
+public/resume.pdf
+public/resume/
 /docs/design
 /docs/product
 # OpenNext

@@ -13,6 +13,21 @@ export function Contact() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const prefersReducedMotion = useReducedMotion();
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+
+    const subject = encodeURIComponent(`Portfolio Contact Form - Message from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+
+    window.location.href = `mailto:aprajitaworks@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   const containerVariants: Variants = {
     hidden: { opacity: prefersReducedMotion ? 1 : 0 },
     visible: {
@@ -70,6 +85,7 @@ export function Contact() {
 
           {/* Contact Form */}
           <motion.form
+            onSubmit={handleSubmit}
             variants={itemVariants}
             className="mx-auto mt-12 max-w-md space-y-4 text-left"
           >

@@ -209,7 +209,7 @@ export function Navbar() {
                 className="h-10 rounded-md px-5 font-geist text-sm font-medium"
               >
                 <Link href={personalInfo.resumeUrl} target="_blank" rel="noreferrer">
-                  Resume
+                  {personalInfo.secondaryCtaLabel}
                 </Link>
               </Button>
             </nav>
@@ -237,6 +237,7 @@ export function Navbar() {
         onClose={() => setIsMobileMenuOpen(false)}
         onNavigate={navigateToSection}
         resumeUrl={personalInfo.resumeUrl}
+        resumeLabel={personalInfo.secondaryCtaLabel}
       />
     </>
   );

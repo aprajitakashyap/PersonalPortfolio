@@ -13,6 +13,7 @@ type MobileMenuProps = {
   onClose: () => void;
   onNavigate: (href: string) => void;
   resumeUrl: string;
+  resumeLabel: string;
 };
 
 export function MobileMenu({
@@ -22,6 +23,7 @@ export function MobileMenu({
   onClose,
   onNavigate,
   resumeUrl,
+  resumeLabel,
 }: MobileMenuProps) {
   if (!isOpen) {
     return null;
@@ -94,7 +96,7 @@ export function MobileMenu({
             className="mt-8 h-11 w-full rounded-md font-geist text-sm font-medium"
           >
             <Link href={resumeUrl} target="_blank" rel="noreferrer">
-              Resume
+              {resumeLabel}
             </Link>
           </Button>
         </nav>
