@@ -14,7 +14,7 @@ export const personalInfo: PersonalInfo = {
   location: "India",
   availability: "Open to Opportunities",
   avatarUrl: "/images/ExtractedmyPhoto.webp",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/resume/resume.pdf",
 };
 
 export const socialLinks: SocialLink[] = [

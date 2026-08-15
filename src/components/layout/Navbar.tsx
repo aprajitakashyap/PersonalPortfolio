@@ -28,8 +28,6 @@ export function Navbar() {
         .filter((href) => href.startsWith("#"))
         .map((href) => href.slice(1));
 
-      const scrollPosition = window.scrollY + 140; // 140px header offset
-
       // If at top of page
       if (window.scrollY < 100) {
         setActiveSection("#home");
@@ -49,9 +47,9 @@ export function Navbar() {
       for (const id of sectionIds) {
         const el = document.getElementById(id);
         if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
+          const rect = el.getBoundingClientRect();
+          const top = rect.top + window.scrollY;
+          if (window.scrollY + 160 >= top) {
             current = `#${id}`;
           }
         }
