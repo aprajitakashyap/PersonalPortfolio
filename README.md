@@ -2,6 +2,8 @@
 
 A modern, high-performance, and visually engaging personal portfolio website built with **Next.js 15**, **React 19**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
 
+🔗 **Live Demo**: [https://personalportfolio.aprajitaworks.workers.dev](https://personalportfolio.aprajitaworks.workers.dev)
+
 Designed with a warm earthy aesthetic (minimalist meets maximalist elegance), custom typography (Outfit, Inter, and Cormorant Garamond), smooth micro-interactions, and responsive components.
 
 ---
